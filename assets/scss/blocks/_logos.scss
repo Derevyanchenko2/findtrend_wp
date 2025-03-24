@@ -1,0 +1,54 @@
+.logos {
+    background: #fff;
+    @media(max-width:768px){
+        padding-bottom: 50px;
+        padding-top: 40px;
+    }
+}
+.logos-title{
+    margin-bottom: 80px;
+    @media(max-width:1200px){
+        margin-bottom: 60px;
+    }
+    @media(max-width:768px){
+        margin-bottom: 32px;
+    }
+}
+
+.logo-company{
+    padding-left: 15px;
+    padding-right: 15px;
+    flex: 0 0 25%;
+    max-width: 0 25%;
+    margin-bottom: 32px;
+}
+@media(max-width:992px){
+    .logo-company{
+        flex: 0 0 33.333%; 
+        max-width: 33.333%;
+    }
+    .logo-company img{
+        max-width: 225px;
+        width: 100%; 
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-company {
+        flex: 0 0 50%; 
+        max-width: 50%;
+        padding-left: 0;
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .logo-company img {
+        width: 165px; 
+        height: auto;
+    }
+
+    .logos-wrapper {
+        justify-content: center;
+    }
+}

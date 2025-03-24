@@ -1,0 +1,132 @@
+.tabs-section {
+  background: #a8ff35;
+}
+
+.tabs-content {
+  max-width: 854px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.tabs-content__title {
+  text-align: center;
+  margin-bottom: 60px;
+  @media(max-width: 768px){
+    margin-bottom: 80px;
+  }
+}
+
+.tabs-arrow__icon {
+  position: absolute;
+  @media(max-width: 768px){
+    max-width: 93px;
+    width: 100%;
+  }
+}
+.tabs-arrow__icon--left {
+  top: 46%;
+  left: 25px;
+  @media(max-width: 768px){
+    top: 57%;
+    left: -5px;
+    z-index: 3;
+    transform: rotate(-14deg);
+  }
+  @media(max-width: 380px){
+    top: 61%;
+    left: -5px;
+    z-index: 3;
+  }
+}
+
+.tabs-arrow__icon--right {
+  top: 46%;
+  right: 25px; 
+  @media(max-width: 768px){
+    top: 14%;
+    right: 0px;
+    z-index: 3;
+    transform: rotate(-20deg);
+  }
+  @media(max-width: 380px){
+    top: 22%;
+    right: 0px;
+  }
+}
+
+.tabs-notification {
+  position: relative;
+  padding: 60px 80px;
+  border-radius: 16px;
+  background: #f5f5f5;
+  z-index: 2;
+  @media(max-width: 992px){
+    padding: 25px 45px;
+  }
+  @media(max-width: 768px){
+    padding: 24px;
+  }
+  @media(max-width: 480px){
+    width: 100%;
+    justify-content: center;
+    display: flex;
+  }
+}
+.tabs-notification__btn {
+  max-width: 341px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #000;
+  color: white;
+  padding: 25px 35px;
+  border-radius: 12px;
+  position: relative;
+  overflow: hidden;
+  white-space: nowrap;
+  @media(max-width: 992px){
+    padding: 20px 30px;
+  }
+}
+.tabs-notification__logo{
+  @media(max-width: 768px){
+    width: 27px;
+    height: 27px;
+  }
+}
+.tabs-notification__btn span {
+  display: inline-block;
+  animation: hideText 5s linear infinite;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 23px;
+  text-align: center;
+  color: #fff;
+  @media(max-width: 768px){
+    font-size: 20px;
+  }
+}
+
+.close {
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  // img{
+  //   height: 100%;
+  // }
+}
+
+.tabs-text{
+  color: #000;
+  margin-top: 60px;
+  @media(max-width: 768px){
+    margin-top: 80px;
+  }
+}

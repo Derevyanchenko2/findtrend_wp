@@ -1,0 +1,128 @@
+.social-tabs-section{
+    background: #fafafa;
+    @media(max-width: 768px){
+
+    }
+}
+.tabs-title{
+    text-align: center;
+}
+/* Основные стили для табов */
+.tabs {
+    display: flex;
+    justify-content: center;
+    gap: 16px; 
+    margin: 80px 0; 
+    overflow-x: auto;
+    padding-bottom: 10px; 
+    scrollbar-color: #a8ff35 transparent; 
+    scrollbar-width: thin; 
+    @media(max-width: 768px){
+        margin: 32px 0;
+    }
+}
+
+.tabs::-webkit-scrollbar {
+    height: 5px; 
+}
+
+.tabs::-webkit-scrollbar-thumb {
+    background-color: #a8ff35; 
+    border-radius: 4px;
+}
+
+.tab {
+    background-color: #fff;
+    border: none;
+    cursor: pointer;
+    padding: 32px; 
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0; 
+    @media(max-width: 1200px){
+        padding: 20px;
+    }
+}
+
+.tab img {
+    width: 60px;
+    height: 60px;
+    @media(max-width:1200px){
+        width: 56px; 
+        height: 56px;
+    }   
+    @media(max-width:992px){
+        width: 42px; 
+        height: 42px;
+    }   
+   
+}
+
+.tab.active {
+    background-color: #a8ff35;
+}
+
+@media (max-width: 768px) {
+    .tabs {
+        gap: 16px; 
+    }
+
+    .tab {
+        padding: 16px;
+    }
+
+    .tab img {
+        width: 31px; 
+        height: 31px;
+    }
+}
+
+
+.tab-content {
+    animation: fadeEffect 1s; 
+    max-width: 800px;
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    p{
+        color: #fff;
+    }
+}
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+
+.tab-content.active {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+.tweet-image:not(:last-child){
+    margin-bottom: 40px;
+    @media(max-width: 768px){
+        margin-bottom: 16px;
+    }
+}
+.tweet-image{
+    max-width: 100%;
+    img{
+        width: 100%;
+    }
+}
+.more-btn{
+    cursor: pointer;
+    border-radius: 40px;
+    margin-top: 80px;
+    padding: 16px 37px;
+    background: #000;
+    margin: 0 auto;
+    @media(max-width: 768px){
+        margin-top: 16px;
+        padding: 12px 24px;
+    }
+}
+

@@ -1,0 +1,28 @@
+.join {
+    background: #a8ff35;
+    padding: 140px 0;
+    @media(max-width:768px){
+        padding: 80px 0;
+    }
+}
+
+.join-heading__title {
+    margin-bottom: 40px;
+    @media(max-width:768px){
+        margin-bottom: 32px;
+    }
+}
+
+.section-title--green {
+    color: #87d322;
+}
+.section-title--opacity{
+    color: #adadad;
+}
+.join-btn {
+    color: #fff;
+    background: #000;
+    margin: 0 auto;
+    border-radius: 40px;
+    padding: 16px 52px;
+}
