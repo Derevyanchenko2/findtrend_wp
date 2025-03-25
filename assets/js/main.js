@@ -52,70 +52,71 @@ document.getElementById('pricing-toggle').addEventListener('change', function() 
 
 
 document.addEventListener("DOMContentLoaded", function() {
-  const modal = document.getElementById("modal");
-  const closeModal = document.querySelector(".close-btn");
-  const tariffButtons = document.querySelectorAll(".pricing-btn");
-  const tariffInput = document.getElementById("selected-tariff");
-
-  // Устанавливаем выбранный тариф в скрытое поле
-  tariffButtons.forEach(button => {
-      button.addEventListener("click", function(event) {
-          event.preventDefault();
-          tariffInput.value = this.parentElement.querySelector(".pricing-item__title").innerText;
-          modal.style.display = "flex";
-      });
-  });
-
-  closeModal.addEventListener("click", function() {
-      modal.style.display = "none";
-  });
-
-  window.addEventListener("click", function(event) {
-      if (event.target === modal) {
-          modal.style.display = "none";
-      }
-  });
-
-
-
-
-  const form = document.querySelector('.modal-form');
-  form.addEventListener('submit', function(event) {
-      event.preventDefault();
-
-      let formData = $(this).serializeArray();
-
-      $.ajax({
-        url: window.myajax.url, 
-        type: "POST", 
-        data: formData, 
-        dataType: "json", 
-        success: function(response) {
-          console.log("Успех:", response);
-        },
-        error: function(xhr, status, error) {
-          console.error("Ошибка:", status, error);
-        }
-      });
-
-  });
-});
-
-
-
-document.addEventListener("DOMContentLoaded", function () {
     const modal = document.getElementById("modal");
-    const closeModal = document.getElementById("close-modal");
+    const closeModal = document.querySelector(".close-btn");
+    const tariffButtons = document.querySelectorAll(".pricing-btn");
+    const tariffInput = document.getElementById("selected-tariff");
+    const form = document.querySelector('.modal-form');
 
+    // Принудительно скрываем модальное окно при загрузке страницы
     modal.style.display = "none";
 
-    closeModal.addEventListener("click", function () {
+    // Открытие модального окна при клике на кнопку
+    tariffButtons.forEach(button => {
+        button.addEventListener("click", function(event) {
+            event.preventDefault();
+            tariffInput.value = this.parentElement.querySelector(".pricing-item__title").innerText;
+            modal.style.display = "flex";
+        });
+    });
+
+    // Закрытие модального окна при клике на кнопку закрытия
+    closeModal.addEventListener("click", function() {
         modal.style.display = "none";
     });
 
-    window.addEventListener("click", function (event) {
+    // Закрытие модального окна при клике вне его
+    window.addEventListener("click", function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
+    });
+
+    // Отправка формы через AJAX
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        let formData = $(this).serializeArray();
+
+        $.ajax({
+            url: window.myajax.url,
+            type: "POST",
+            data: formData,
+            dataType: "json",
+            success: function(response) {
+                console.log("Успех:", response);
+
+                modal.style.display = "none";
+
+                form.reset();
+
+                setTimeout(() => {
+                    Swal.fire({
+                        title: "Request submitted!",
+                        text: "A manager will contact you in a few minutes",
+                        icon: "success",
+                        confirmButtonText: "Ок"
+                    });
+                }, 1000);
+            },
+            error: function(xhr, status, error) {
+                console.error("Error:", status, error);
+                Swal.fire({
+                    title: "Error!",
+                    text: "There was an error submitting the request",
+                    icon: "error"
+                });
+            }
+        });
     });
 });

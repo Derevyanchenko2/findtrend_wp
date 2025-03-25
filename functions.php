@@ -45,6 +45,7 @@ add_action( 'wp_enqueue_scripts', function(){
 
     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js', array(), null, true );
     wp_enqueue_script( 'jquery-main', 'https://code.jquery.com/jquery-3.6.0.min.js', array(), null, true );
+    wp_enqueue_script( 'sweetalert', 'https://cdn.jsdelivr.net/npm/sweetalert2@11', array(), null, true );
     wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/js/main.js', array('swiper'), '1.0.0', true );
     wp_enqueue_script( 'main-script', get_template_directory_uri() . '/assets/ajax-form-handler.js', array('swiper'), '1.0.0', true );
       
