@@ -3,25 +3,15 @@
 // Автоматически определяем версию темы
 define('FINDTREND_VERSION', wp_get_theme()->get('Version'));
 
-/**
- * Настройка темы
- */
+
 function findtrend_setup() {
-    // Локализация
     load_theme_textdomain('findtrend', get_template_directory() . '/languages');
 
-    // Поддержка <title>
     add_theme_support('title-tag');
 
-    // Поддержка миниатюр (и для страниц тоже)
     add_theme_support('post-thumbnails');
     add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption']);
 
-    // Регистрация меню
-    // register_nav_menus([
-    //     'primary' => esc_html__('Primary Menu', 'findtrend'),
-    //     'footer'  => esc_html__('Footer Menu', 'findtrend'),
-    // ]);
 
     // Поддержка логотипа
     add_theme_support('custom-logo', [
@@ -70,9 +60,7 @@ add_action('after_setup_theme', 'register_my_menus');
 
 
 
-/**
- * Регистрация боковой панели (виджеты)
- */
+
 function findtrend_widgets_init() {
     register_sidebar([
         'name'          => esc_html__('Sidebar', 'findtrend'),
@@ -86,9 +74,6 @@ function findtrend_widgets_init() {
 }
 add_action('widgets_init', 'findtrend_widgets_init');
 
-/**
- * Разрешаем загрузку SVG в WordPress
- */
 function findtrend_mime_types($mimes) {
     $mimes['svg'] = 'image/svg+xml';
     return $mimes;
@@ -113,10 +98,10 @@ function create_package_post_type() {
         ],
         'public' => true,
         'has_archive' => true,
-        'menu_icon' => 'dashicons-awards', // Значок в меню
-        'supports' => ['title', 'editor'], // Поддержка названия и контента
+        'menu_icon' => 'dashicons-awards', 
+        'supports' => ['title', 'editor'], 
         'rewrite' => ['slug' => 'packages'],
-        'show_in_rest' => true, // Для работы с блоками Gutenberg
+        'show_in_rest' => true,
     ]);
 }
 add_action('init', 'create_package_post_type');
@@ -132,7 +117,7 @@ function create_custom_post_type_requests() {
             'public' => true,
             'has_archive' => true,
             'rewrite' => array('slug' => 'requests'),
-            'show_in_rest' => true, // Если нужно отображение в блоке редактора
+            'show_in_rest' => true, 
             'supports' => array('title', 'editor')
         )
     );
